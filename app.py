@@ -1,10 +1,11 @@
 import datetime
 import pandas as pd
 import streamlit as st
+import holidays 
 import sys, os
 import re
-from src import predict
-from src import preprocessing
+from src import preprocessing 
+from src import predictor
 from PIL import Image
 from math import radians, cos, sin, asin, sqrt, atan2, degrees
 
@@ -115,7 +116,7 @@ def get_user_input(df):
     # using raw_data.csv for delivery_person_ID as we dropped in preprocessing.py as it is not required for model predictions
     # here, we require for showing in frontend app
     
-    raw_data = pd.read_csv("./dataset/raw_data.csv")
+    raw_data = pd.read_csv(r"D:\Projects\Uber\Data\rawdata.csv")
     delivery_person_ids = raw_data["Delivery_person_ID"].unique()
     restaurant_locations = {}
     for delivery_person_id in delivery_person_ids:
@@ -258,16 +259,14 @@ if __name__ == "__main__":
                        initial_sidebar_state="auto")
 
     # Read in training data
-    df = pd.read_csv("./dataset/raw_data.csv")
-    dataprocess = preprocessing.DataProcessing()
+    df = pd.read_csv(r"D:\Projects\Uber\Data\rawdata.csv")
+    dataprocess = preprocessing.DataPreProcessing()
     dataprocess.cleaning_steps(df)
 
     # Displaying app header
     st.title("Food Delivery Time Prediction")
 
-    # Displaying image of homepage 
-    img = Image.open('./assets/food_delivery_README.jpg')
-    st.image(img, width=700)
+   
 
     st.write("""
                 The food delivery time prediction model ensures prompt and accurate deliveries in the food industry.
@@ -288,8 +287,10 @@ if __name__ == "__main__":
         order_pickup_time = input_df['Time_Order_picked'][0]
         order_pickup_date_time = datetime.datetime.strptime(f'{order_date} {order_pickup_time}', '%d-%m-%Y %H:%M:%S')
 
-        
-        total_delivery_minutes = round(predict.predict(input_df)[0], 2)  
+        # get predictions
+        # this is the output of the XGBRegressor
+      
+        total_delivery_minutes = round(predictor.predict(input_df)[0], 2)  
         minutes = int(total_delivery_minutes)
         X = order_pickup_date_time + datetime.timedelta(minutes=minutes)
 

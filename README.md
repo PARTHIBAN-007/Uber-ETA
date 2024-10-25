@@ -8,8 +8,11 @@ The model will help optimize
 routing, resource allocation, and provide more accurate delivery estimates by analyzing various factors that impact delivery time.
 
 
-## Repository Structure
+## UBER ETA Prediction
 
+<img src ="./assets/ETA Prediction.png">
+
+## Repository Structure
 
 
 1. **data**: Stores different versions of data in distinct folders.
