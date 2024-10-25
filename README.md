@@ -9,8 +9,12 @@ routing, resource allocation, and provide more accurate delivery estimates by an
 
 
 ## UBER ETA Prediction
+<div style ="grid:">
+<img src ="./assets/ETA Prediction.png" height=40% width=50%>
+<img src ="./assets/ETA Prediction2.png" height=50% width=50%>
+</div>
+<img src ="./assets/ETA predictions.png">
 
-<img src ="./assets/ETA Prediction.png">
 
 ## Repository Structure
 
