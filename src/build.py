@@ -1,6 +1,6 @@
 from preprocessing import *
 import pandas as pd
-train_df = pd.read_csv(r"D:\Projects\Uber\Data\rawdata.csv")
+train_df = pd.read_csv("./Data/rawdata.csv")
 
 
 dp = DataPreProcessing()
@@ -27,6 +27,6 @@ y_pred = model.predict(X_test)
 dp.evaluate_model(Y_test, y_pred)
 
 # Create model.pkl and Save Model
-with open(r"D:\Projects\Uber\Model\model.pickle", 'wb') as f:
+with open("./Model/model.pickle", 'wb') as f:
     pickle.dump((model, label_encoders, Scale), f)
 print("Model pickle saved to model folder")

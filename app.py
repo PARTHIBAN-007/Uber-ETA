@@ -116,7 +116,7 @@ def get_user_input(df):
     # using raw_data.csv for delivery_person_ID as we dropped in preprocessing.py as it is not required for model predictions
     # here, we require for showing in frontend app
     
-    raw_data = pd.read_csv(r"D:\Projects\Uber\Data\rawdata.csv")
+    raw_data = pd.read_csv("./Data/rawdata.csv")
     delivery_person_ids = raw_data["Delivery_person_ID"].unique()
     restaurant_locations = {}
     for delivery_person_id in delivery_person_ids:
@@ -259,7 +259,7 @@ if __name__ == "__main__":
                        initial_sidebar_state="auto")
 
     # Read in training data
-    df = pd.read_csv(r"D:\Projects\Uber\Data\rawdata.csv")
+    df = pd.read_csv("./Data/rawdata.csv")
     dataprocess = preprocessing.DataPreProcessing()
     dataprocess.cleaning_steps(df)
 
