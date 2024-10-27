@@ -40,28 +40,13 @@ routing, resource allocation, and provide more accurate delivery estimates by an
 
 6. **app.py**: Streamlit frontend
 
-7. **Dockerfile**: Configuration for setting up the project in a Docker container.
+
 
 # HAVERSINE FORMULA
 <img src ="https://michaelminn.net/tutorials/gis-distance/2022-haversine-formula.png">
 
 # Setting up the Project
 
-**With Docker**
-1. Clone the repository
-```
-git clone https://github.com/PARTHIBAN-007/Uber-ETA.git
-```
-2. build the Docker Image
-```
-docker build -t ml-app .
-```
-3. Run the following command to use the app
-```
-docker run ml-app
-```
-
-**Without Docker**
 1. Clone the repository
 ```
 git clone https://github.com/PARTHIBAN-007/Uber-ETA.git
