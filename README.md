@@ -55,7 +55,7 @@ git clone https://github.com/PARTHIBAN-007/Uber-ETA.git
 ```
 pip install -r requirements.txt
 ```
-3. Run the following command to use the app
+3. Run the following command to open the app
 ```
 streamlit run app.py
 ```
